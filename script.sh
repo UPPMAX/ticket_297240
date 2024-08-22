@@ -1,3 +1,4 @@
+#!/bin/bash
 module load bioinfo-tools
 module load python/3.7.2
 module load cellranger/7.1.0
