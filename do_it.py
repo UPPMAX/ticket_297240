@@ -1,3 +1,5 @@
+
+# From https://stackoverflow.com/a/55187291
 import os
 
 cwd = os.getcwd()
@@ -11,5 +13,6 @@ for i in range(len(list_dir)): # Import all of them (or index them in some way)
     from module import *
 os.chdir(cwd)
 
+# Back to what the user needs
 import cellranger
 import cellranger.matrix as cr_matrix
