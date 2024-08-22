@@ -20,15 +20,15 @@ def my_assign_features(self):
     feature_ids_this_type = self.matrix.get_feature_ids_by_type(self.feature_type)
 
     for feature_id in feature_ids_this_type:
-    assert isinstance(feature_id, bytes)
-    umi_counts = self.matrix.get_subselected_counts(
-        log_transform=False, library_type=self.feature_type, list_feature_ids=[feature_id]
-    )
+        assert isinstance(feature_id, bytes)
+        umi_counts = self.matrix.get_subselected_counts(
+            log_transform=False, library_type=self.feature_type, list_feature_ids=[feature_id]
+        )
 
-    in_high_umi_component = self._call_presence(umi_counts, self.method)
-    assignments[feature_id] = FeatureAssignmentsMatrix(
-        np.flatnonzero(np.array(in_high_umi_component)), sum(umi_counts), False, []
-    )
+        in_high_umi_component = self._call_presence(umi_counts, self.method)
+        assignments[feature_id] = FeatureAssignmentsMatrix(
+            np.flatnonzero(np.array(in_high_umi_component)), sum(umi_counts), False, []
+        )
 
     # assignments = self.identify_contaminant_tags(assignments)
 
