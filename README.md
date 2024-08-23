@@ -386,3 +386,13 @@ Traceback (most recent call last):
 ModuleNotFoundError: No module named 'lz4'
 ```
 
+
+## Thanks for the help 10x!
+
+From <https://github.com/10XGenomics/cellranger/tree/main>:
+
+> Please note that this source code is made available only for informational
+> purposes. 10x does not provide support for interpreting,
+> modifying, building, or running this code.
+
+Thanks 10x!
