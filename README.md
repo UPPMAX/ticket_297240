@@ -52,7 +52,34 @@ See documentation at https://bazel.build/concepts/build-ref#workspace
 FATAL:   While performing build: while running engine: exit status 2
 ```
 
-Use tip from https://stackoverflow.com/q/61869719
+Use tip from https://stackoverflow.com/q/61869719 .
+
+Then:
+
+```
+./build_container.sh
+```
+
+Gives error:
+
+```
++ touch WORKSPACE
++ bazel build conda_spec.bzl
+Extracting Bazel installation...
+Starting local Bazel server and connecting to it...
+WARNING: --enable_bzlmod is set, but no MODULE.bazel file was found at the workspace root. Bazel will create an empty MODULE.bazel file. Please consider migrating your external dependencies from WORKSPACE to MODULE.bazel. For more details, please refer to https://github.com/bazelbuild/bazel/issues/18958.
+WARNING: Target pattern parsing failed.
+ERROR: Skipping 'conda_spec.bzl': couldn't determine target from filename 'conda_spec.bzl'
+ERROR: couldn't determine target from filename 'conda_spec.bzl'
+INFO: Elapsed time: 7.913s
+INFO: 0 processes.
+ERROR: Build did NOT complete successfully
+FATAL:   While performing build: while running engine: exit status 1
+```
+
+Added tip from https://raw.githubusercontent.com/10XGenomics/cellranger/main/conda_spec.bzl to add content to WORKSPACE.
+
+
 
 ## Approach 4: Use Singularity from scratch
 

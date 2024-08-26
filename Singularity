@@ -12,6 +12,9 @@ From: chainguard/bazel:latest
     # Tip from https://stackoverflow.com/q/61869719
     touch WORKSPACE
 
+    echo 'load(":conda_spec.bzl", "anaconda_workspace")' > WORKSPACE
+    echo 'anaconda_workspace()' >> WORKSPACE
+
     bazel build conda_spec.bzl
 
 %runscript
