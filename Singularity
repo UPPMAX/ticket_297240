@@ -1,5 +1,6 @@
 Bootstrap: docker
-From: pnnlmiscscripts/anaconda:latest
+From: mcr.microsoft.com/devcontainers/anaconda
+# From: pnnlmiscscripts/anaconda:latest
 
 
 %post
@@ -8,8 +9,6 @@ From: pnnlmiscscripts/anaconda:latest
 
     conda install hcc::cellranger
 
-    cd /opt
-    git clone https://github.com/10XGenomics/cellranger
 
 %runscript
 python "$@"
