@@ -18,6 +18,42 @@ docker pull chainguard/bazel:latest
 bazel build conda_spec.bzl
 ```
 
+Build Singularity file:
+
+```
+Bootstrap: docker
+From: chainguard/bazel:latest
+
+%post
+    # From https://github.com/brucemoran/Singularity/blob/8eb44591284ffb29056d234c47bf8b1473637805/shub/bases/recipe.CentOs7-R_3.5.2#L21
+    echo 'export LANG=en_US.UTF-8 LANGUAGE=C LC_ALL=C LC_CTYPE=C LC_COLLATE=C  LC_TIME=C LC_MONETARY=C LC_PAPER=C LC_MEASUREMENT=C' >> $SINGULARITY_ENVIRONMENT
+
+    cd /opt
+    git clone https://github.com/10XGenomics/cellranger
+    cd cellranger
+
+    bazel build conda_spec.bzl
+
+%runscript
+python "$@"
+```
+
+Build:
+
+```
+./build_container.sh
+```
+
+Error:
+
+```
+ERROR: The 'build' command is only supported from within a workspace (below a directory having a WORKSPACE file).
+See documentation at https://bazel.build/concepts/build-ref#workspace
+FATAL:   While performing build: while running engine: exit status 2
+```
+
+Use tip from https://stackoverflow.com/q/61869719
+
 ## Approach 4: Use Singularity from scratch
 
 Approach 5 seems easier.

@@ -9,6 +9,9 @@ From: chainguard/bazel:latest
     git clone https://github.com/10XGenomics/cellranger
     cd cellranger
 
+    # Tip from https://stackoverflow.com/q/61869719
+    touch WORKSPACE
+
     bazel build conda_spec.bzl
 
 %runscript
