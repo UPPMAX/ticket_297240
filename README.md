@@ -2,8 +2,25 @@
 
 Ticket 297240
 
-## Approach 4: Use Singularity
+## Approach 5: Use Singularity from BZL file
 
+Due to file that 10x uses <https://github.com/10XGenomics/cellranger/blob/main/conda_spec.bzl>
+
+Here is a Docker file: https://hub.docker.com/r/chainguard/bazel
+
+Docker pull command:
+
+```
+docker pull chainguard/bazel:latest
+```
+
+```
+bazel build conda_spec.bzl
+```
+
+## Approach 4: Use Singularity from scratch
+
+Approach 5 seems easier.
 
 ## Approach 3: Use conda from module
 
