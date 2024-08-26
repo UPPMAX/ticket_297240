@@ -553,3 +553,17 @@ From <https://github.com/10XGenomics/cellranger/tree/main>:
 > modifying, building, or running this code.
 
 Thanks 10x!
+
+
+## Communication
+
+### 2024-08-26
+
+To me to 10X:
+
+> I do support like you, and a user wants to use the Python code of Cell Ranger.
+> 
+> I've had multiple approaches to get these Python modules to work (notes at https://github.com/UPPMAX/ticket_297240  ), such as using the Bazel file nicely provided at https://github.com/10XGenomics/cellranger/blob/main/conda_spec.bzl , yet always I got stranded at a dead end/
+> 
+> How do I use the Cell Ranger Python modules? Could there be a guide published to? Or a GitHub Actions build script on the GitHub repo?
+
