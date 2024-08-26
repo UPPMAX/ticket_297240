@@ -95,7 +95,34 @@ FATAL:   While performing build: while running engine: exit status 1
 
 OK, create an empty BUILD file ...
 
-## Approach 4: Use Singularity from scratch
+
+
+
+With content in the BUILD file:
+Run again, new error:
+
+```
++ touch BUILD
++ bazel build conda_spec.bzl
+Extracting Bazel installation...
+Starting local Bazel server and connecting to it...
+WARNING: --enable_bzlmod is set, but no MODULE.bazel file was found at the workspace root. Bazel will create an empty MODULE.bazel file. Please consider migrating your external dependencies from WORKSPACE to MODULE.bazel. For more details, please refer to https://github.com/bazelbuild/bazel/issues/18958.
+ERROR: Failed to load Starlark extension '@@tenx_bazel_rules//rules:conda_package_repository.bzl'.
+Cycle in the workspace file detected. This indicates that a repository is used prior to being defined.
+The following chain of repository dependencies lead to the missing definition.
+ - @@tenx_bazel_rules
+This could either mean you have to add the '@@tenx_bazel_rules' repository with a statement like `http_archive` in your WORKSPACE file (note that transitive dependencies are not added automatically), or move an existing definition earlier in your WORKSPACE file.
+ERROR: Error computing the main repository mapping: cycles detected during computation of main repo mapping
+Computing main repo mapping: 
+FATAL:   While performing build: while running engine: exit status 37
+```
+
+
+## Approach 4: Use Singularity from conda
+
+
+https://anaconda.org/hcc/cellranger
+
 
 Approach 5 seems easier.
 
