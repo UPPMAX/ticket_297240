@@ -12,8 +12,12 @@ From: chainguard/bazel:latest
     # Tip from https://stackoverflow.com/q/61869719
     touch WORKSPACE
 
+    # Tip from https://raw.githubusercontent.com/10XGenomics/cellranger/main/conda_spec.bzl
     echo 'load(":conda_spec.bzl", "anaconda_workspace")' > WORKSPACE
     echo 'anaconda_workspace()' >> WORKSPACE
+
+    # Tip from error message
+    touch BUILD
 
     bazel build conda_spec.bzl
 

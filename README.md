@@ -79,7 +79,21 @@ FATAL:   While performing build: while running engine: exit status 1
 
 Added tip from https://raw.githubusercontent.com/10XGenomics/cellranger/main/conda_spec.bzl to add content to WORKSPACE.
 
+Build again:
 
+```
++ echo 'load(":conda_spec.bzl", "anaconda_workspace")'
++ echo 'anaconda_workspace()'
++ bazel build conda_spec.bzl
+Extracting Bazel installation...
+Starting local Bazel server and connecting to it...
+WARNING: --enable_bzlmod is set, but no MODULE.bazel file was found at the workspace root. Bazel will create an empty MODULE.bazel file. Please consider migrating your external dependencies from WORKSPACE to MODULE.bazel. For more details, please refer to https://github.com/bazelbuild/bazel/issues/18958.
+ERROR: Error computing the main repository mapping: Every .bzl file must have a corresponding package, but '//:conda_spec.bzl' does not have one. Please create a BUILD file in the same or any parent directory. Note that this BUILD file does not need to do anything except exist.
+Computing main repo mapping: 
+FATAL:   While performing build: while running engine: exit status 1
+```
+
+OK, create an empty BUILD file ...
 
 ## Approach 4: Use Singularity from scratch
 
